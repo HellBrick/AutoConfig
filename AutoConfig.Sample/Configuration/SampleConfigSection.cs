@@ -11,6 +11,7 @@ namespace AutoConfig.Sample.Configuration
 	{
 		public const string Name = "SampleConfigSection";
 
+		public int Threads { get; set; }
 		public string Login { get; set; }
 		public string Password { get; set; }
 		public TimeSpan Interval { get; set; }
