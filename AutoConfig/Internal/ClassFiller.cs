@@ -33,7 +33,11 @@ namespace AutoConfig.Internal
 			if ( !_type.IsAssignableFrom( obj.GetType() ) )
 				throw new ArgumentException( String.Format( "Type derived from {0} expected; got {1} insted.", _type, obj.GetType(), "obj" ) );
 
-			foreach ( var node in xmlNode.ChildNodes.OfType<XmlElement>() )
+			var attributes = xmlNode.Attributes.OfType<XmlNode>();
+			var subnodes = xmlNode.ChildNodes.OfType<XmlNode>();
+			var allNodes = Enumerable.Concat( attributes, subnodes );
+
+			foreach ( var node in allNodes )
 			{
 				PropertyInfo property;
 				if ( _properties.TryGetValue( node.Name.ToUpperInvariant(), out property ) )
@@ -41,7 +45,7 @@ namespace AutoConfig.Internal
 			}
 		}
 
-		private void FillProperty( object obj, PropertyInfo property, XmlElement node )
+		private void FillProperty( object obj, PropertyInfo property, XmlNode node )
 		{
 			Type propertyType = property.PropertyType;
 			var configurationProperty = new ConfigurationProperty( node.Name, propertyType );
