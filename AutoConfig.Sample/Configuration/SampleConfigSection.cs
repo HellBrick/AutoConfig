@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace AutoConfig.Sample.Configuration
 {
-	[SettingsProvider( typeof( AutoSettingsProvider ) )]
 	public class SampleConfigSection
 	{
 		public const string Name = "SampleConfigSection";
