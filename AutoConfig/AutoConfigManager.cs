@@ -11,6 +11,11 @@ namespace AutoConfig
 {
 	public static class AutoConfigManager
 	{
+		public static T GetSection<T>() where T: new()
+		{
+			return GetSection<T>( typeof( T ).Name, () => new T() );
+		}
+
 		public static T GetSection<T>( string sectionName ) where T: new()
 		{
 			return GetSection<T>( sectionName, () => new T() );			
