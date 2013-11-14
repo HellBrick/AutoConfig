@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AutoConfig
 {
-	public class AutoConfigSection : IConfigurationSectionHandler
+	internal class SectionType : IConfigurationSectionHandler
 	{
 		#region IConfigurationSectionHandler Members
 
