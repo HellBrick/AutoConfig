@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace AutoConfig.Sample.Configuration
 {
-	public class SampleConfigSection
+	public class SampleConfig
 	{
-		public const string Name = "SampleConfigSection";
-
 		public int Threads { get; set; }
 		public string Login { get; set; }
 		public string Password { get; set; }

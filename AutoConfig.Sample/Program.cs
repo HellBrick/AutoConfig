@@ -12,7 +12,7 @@ namespace AutoConfig.Sample
 	{
 		static void Main( string[] args )
 		{
-			var section = AutoConfigManager.GetSection<SampleConfigSection>( SampleConfigSection.Name );
+			SampleConfig section = AutoConfigManager.GetSection<SampleConfig>();
 		}
 	}
 }
