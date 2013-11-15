@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoConfigManager.cs" />
+    <Compile Include="Exceptions\PropertyParsingException.cs" />
     <Compile Include="Exceptions\SectionNotFoundException.cs" />
     <Compile Include="Exceptions\TypeConstructionException.cs" />
     <Compile Include="Internal\CreateInstanceHelper.cs" />

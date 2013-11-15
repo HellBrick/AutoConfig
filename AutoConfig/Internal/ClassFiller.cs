@@ -53,8 +53,9 @@ namespace AutoConfig.Internal
 
 			var converter = TypeDescriptor.GetConverter( propertyType );
 			if ( converter.CanConvertFrom( typeof( string ) ) )
-			{			
-				propertyValue = converter.ConvertFromString( node.InnerText );
+			{
+				string valueString = node.InnerText;
+				propertyValue = ParseProperty( property, valueString, converter );
 			}
 			else
 			{
@@ -65,6 +66,23 @@ namespace AutoConfig.Internal
 
 			if ( propertyValue != null )
 				property.SetValue( obj, propertyValue );
+		}
+
+		private const string _parsingErrorFormat = "Value of the {0}.{1} [{2}] can't be parsed from the string \"{3}\"";
+
+		private static object ParseProperty( PropertyInfo property, string valueString, TypeConverter converter )
+		{
+			try
+			{
+				return converter.ConvertFromString( valueString );
+			}
+			catch ( Exception ex )
+			{
+				throw new PropertyParsingException(
+					property,
+					valueString,
+					String.Format( _parsingErrorFormat, property.DeclaringType.Name, property.Name, property.PropertyType.Name, valueString ), ex );
+			}
 		}
 	}
 }
