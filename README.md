@@ -6,7 +6,7 @@ Description
 
 .NET application settings library (System.Configuration) is a cool complex thing that provides us a lot of possibilities. Which is awesome if you actually need all those advanced things, but it turns out to be a huge pain in the ass if you don't.
 
-Most of the time all we need from the app.config is just to read some settings from it, in a fast and conveinent manner. And if you've ever tried writing a custom configuration section for that purpose, you'll agree that the default way to do it is everything but fast and conveinent. It requires deriving from special classes, marking properties with attributes and doing a lot of type casting -- well, that's a lot of hassle for such a simple task. The point of AutoConfig is to allow you to skip all these meaningless things and just load configuration sections into your POCO classes.
+Most of the time all we need from the app.config is just to read some settings from it in a simple and conveinent manner. And if you've ever tried writing a custom configuration section for that purpose, you'll agree that the default way to do it is everything but simple or conveinent. It requires deriving from special classes, marking properties with attributes and doing a lot of type casting -- well, that's a lot of hassle for such a simple task. The point of AutoConfig is to allow you to skip all these meaningless things and just load configuration sections into your POCO classes.
 
 How do I use it?
 ----------------
@@ -57,4 +57,4 @@ Limitations
 
 2. Collection types are not supported at the moment.
 
-3. AutoConfig exposes simple read-only functionality, so there's no saving properties to user.config or other advanced features. At least not at the moment.
+3. AutoConfig exposes simple read-only functionality, so there's no saving properties to user.config or other advanced features, at least not at the moment.
