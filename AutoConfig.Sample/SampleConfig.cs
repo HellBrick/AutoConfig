@@ -11,7 +11,7 @@ namespace AutoConfig.Sample
 	{
 		public int Threads { get; set; }
 		public TimeSpan Interval { get; set; }
-		public TimeSpan? NullableInterval { get; set; }
+		public float? SomethingOptional { get; set; }
 
 		public Credentials Credentials { get; set; }
 	}
