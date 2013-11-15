@@ -27,7 +27,7 @@ namespace AutoConfig
 
 			var xmlNode = ConfigurationManager.GetSection( sectionName ) as XmlNode;
 			if ( xmlNode == null )
-				throw new InvalidOperationException();
+				throw new SectionNotFoundException( String.Format( "Failed to find section <{0}> in the configuration file.", sectionName ), sectionName );
 
 			ClassFiller filler = new ClassFiller( typeof( T ) );
 			filler.Fill( section, xmlNode );

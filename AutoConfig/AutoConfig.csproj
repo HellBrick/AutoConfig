@@ -41,10 +41,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoConfigManager.cs" />
+    <Compile Include="Exceptions\PropertyParsingException.cs" />
+    <Compile Include="Exceptions\SectionNotFoundException.cs" />
+    <Compile Include="Exceptions\TypeConstructionException.cs" />
+    <Compile Include="Internal\CreateInstanceHelper.cs" />
     <Compile Include="Internal\SectionType.cs" />
     <Compile Include="Internal\ClassFiller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
