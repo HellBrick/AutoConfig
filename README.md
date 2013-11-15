@@ -8,6 +8,11 @@ Description
 
 Most of the time all we need from the app.config is just to read some settings from it in a simple and conveinent manner. And if you've ever tried writing a custom configuration section for that purpose, you'll agree that the default way to do it is everything but simple or conveinent. It requires deriving from special classes, marking properties with attributes and doing a lot of type casting -- well, that's a lot of hassle for such a simple task. The point of AutoConfig is to allow you to skip all these meaningless things and just load configuration sections into your POCO classes.
 
+Nuget package
+-------------
+
+[https://www.nuget.org/packages/PocoConfig/](https://www.nuget.org/packages/PocoConfig/)
+
 How do I use it?
 ----------------
 
