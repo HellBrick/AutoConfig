@@ -50,7 +50,7 @@ Now, loading this section is incredibly easy:
 	
 Cool, eh? Configuration section is found using the type name as the section name, and its contents is loaded into your POCO class, just like that. (Though it's not obligatory for the section and the class to have the same name, GetSection<T>() has an overload that allows to pass a name of the section to load).
 
-(You can see the full sample with your own eyes in the [AutoConfig.Sample](https://github.com/HellBrick/AutoConfig/tree/readme/AutoConfig.Sample) project.)
+(You can see the full sample with your own eyes in the [AutoConfig.Sample](https://github.com/HellBrick/AutoConfig/tree/master/AutoConfig.Sample) project.)
 
 Limitations
 -----------
