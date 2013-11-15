@@ -9,6 +9,7 @@ using System.Xml.Linq;
 using System.Xml.Serialization;
 using System.IO;
 using System.Configuration;
+using System.ComponentModel;
 
 namespace AutoConfig.Internal
 {
@@ -48,10 +49,22 @@ namespace AutoConfig.Internal
 		private void FillProperty( object obj, PropertyInfo property, XmlNode node )
 		{
 			Type propertyType = property.PropertyType;
-			var configurationProperty = new ConfigurationProperty( node.Name, propertyType );
-			var value = configurationProperty.Converter.ConvertFromString( node.InnerText );
-			if ( value != null )
-				property.SetValue( obj, value );
+			Object propertyValue = null;
+
+			var converter = TypeDescriptor.GetConverter( propertyType );
+			if ( converter.CanConvertFrom( typeof( string ) ) )
+			{			
+				propertyValue = converter.ConvertFromString( node.InnerText );
+			}
+			else
+			{
+				propertyValue = Activator.CreateInstance( propertyType );
+				var filler = new ClassFiller( propertyType );
+				filler.Fill( propertyValue, node );
+			}
+
+			if ( propertyValue != null )
+				property.SetValue( obj, propertyValue );
 		}
 	}
 }
