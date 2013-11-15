@@ -13,17 +13,12 @@ namespace AutoConfig
 	{
 		public static T GetSection<T>() where T: new()
 		{
-			return GetSection<T>( typeof( T ).Name, () => new T() );
+			return GetSection<T>( typeof( T ).Name );
 		}
 
 		public static T GetSection<T>( string sectionName ) where T: new()
 		{
-			return GetSection<T>( sectionName, () => new T() );			
-		}
-
-		public static T GetSection<T>( string sectionName, Func<T> sectionFactory )
-		{
-			T section = sectionFactory();
+			T section = new T();
 
 			var xmlNode = ConfigurationManager.GetSection( sectionName ) as XmlNode;
 			if ( xmlNode == null )
@@ -31,7 +26,7 @@ namespace AutoConfig
 
 			ClassFiller filler = new ClassFiller( typeof( T ) );
 			filler.Fill( section, xmlNode );
-			return section;
+			return section;	
 		}
 	}
 }
