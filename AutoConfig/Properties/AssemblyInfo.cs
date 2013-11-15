@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("AutoConfig")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription( "A small .NET library that simplifies working with the custom configuration sections." )]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("HellBrick")]
 [assembly: AssemblyProduct("AutoConfig")]
 [assembly: AssemblyCopyright("Copyright ©  2013")]
 [assembly: AssemblyTrademark("")]
