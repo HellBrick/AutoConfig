@@ -42,6 +42,8 @@
   <ItemGroup>
     <Compile Include="AutoConfigManager.cs" />
     <Compile Include="Exceptions\SectionNotFoundException.cs" />
+    <Compile Include="Exceptions\TypeConstructionException.cs" />
+    <Compile Include="Internal\CreateInstanceHelper.cs" />
     <Compile Include="Internal\SectionType.cs" />
     <Compile Include="Internal\ClassFiller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -58,7 +58,7 @@ namespace AutoConfig.Internal
 			}
 			else
 			{
-				propertyValue = Activator.CreateInstance( propertyType );
+				propertyValue = InstanceCreator.Create( propertyType );
 				var filler = new ClassFiller( propertyType );
 				filler.Fill( propertyValue, node );
 			}
