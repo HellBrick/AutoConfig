@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AutoConfig.Sample.Configuration
+namespace AutoConfig.Sample
 {
 	public class SampleConfig
 	{
