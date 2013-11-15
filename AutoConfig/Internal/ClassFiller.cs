@@ -9,6 +9,7 @@ using System.Xml.Linq;
 using System.Xml.Serialization;
 using System.IO;
 using System.Configuration;
+using System.ComponentModel;
 
 namespace AutoConfig.Internal
 {
@@ -33,8 +34,8 @@ namespace AutoConfig.Internal
 			if ( !_type.IsAssignableFrom( obj.GetType() ) )
 				throw new ArgumentException( String.Format( "Type derived from {0} expected; got {1} insted.", _type, obj.GetType(), "obj" ) );
 
-			var attributes = xmlNode.Attributes.OfType<XmlNode>();
-			var subnodes = xmlNode.ChildNodes.OfType<XmlNode>();
+			var attributes = xmlNode.Attributes.Cast<XmlNode>();
+			var subnodes = xmlNode.ChildNodes.Cast<XmlNode>();
 			var allNodes = Enumerable.Concat( attributes, subnodes );
 
 			foreach ( var node in allNodes )
@@ -48,10 +49,22 @@ namespace AutoConfig.Internal
 		private void FillProperty( object obj, PropertyInfo property, XmlNode node )
 		{
 			Type propertyType = property.PropertyType;
-			var configurationProperty = new ConfigurationProperty( node.Name, propertyType );
-			var value = configurationProperty.Converter.ConvertFromString( node.InnerText );
-			if ( value != null )
-				property.SetValue( obj, value );
+			Object propertyValue = null;
+
+			var converter = TypeDescriptor.GetConverter( propertyType );
+			if ( converter.CanConvertFrom( typeof( string ) ) )
+			{			
+				propertyValue = converter.ConvertFromString( node.InnerText );
+			}
+			else
+			{
+				propertyValue = Activator.CreateInstance( propertyType );
+				var filler = new ClassFiller( propertyType );
+				filler.Fill( propertyValue, node );
+			}
+
+			if ( propertyValue != null )
+				property.SetValue( obj, propertyValue );
 		}
 	}
 }
