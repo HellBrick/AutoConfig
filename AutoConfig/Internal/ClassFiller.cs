@@ -33,8 +33,8 @@ namespace AutoConfig.Internal
 			if ( !_type.IsAssignableFrom( obj.GetType() ) )
 				throw new ArgumentException( String.Format( "Type derived from {0} expected; got {1} insted.", _type, obj.GetType(), "obj" ) );
 
-			var attributes = xmlNode.Attributes.OfType<XmlNode>();
-			var subnodes = xmlNode.ChildNodes.OfType<XmlNode>();
+			var attributes = xmlNode.Attributes.Cast<XmlNode>();
+			var subnodes = xmlNode.ChildNodes.Cast<XmlNode>();
 			var allNodes = Enumerable.Concat( attributes, subnodes );
 
 			foreach ( var node in allNodes )
