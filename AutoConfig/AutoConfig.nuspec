@@ -9,7 +9,7 @@
     <projectUrl>https://github.com/HellBrick/AutoConfig/</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Initial release</releaseNotes>
+    <releaseNotes>v1.1: .NET 4.0 support</releaseNotes>
     <copyright>Copyright 2013</copyright>
   </metadata>
 </package>
