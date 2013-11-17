@@ -65,7 +65,7 @@ namespace AutoConfig.Internal
 			}
 
 			if ( propertyValue != null )
-				property.SetValue( obj, propertyValue );
+				property.SetValue( obj, propertyValue, null );
 		}
 
 		private const string _parsingErrorFormat = "Value of the {0}.{1} [{2}] can't be parsed from the string \"{3}\"";
