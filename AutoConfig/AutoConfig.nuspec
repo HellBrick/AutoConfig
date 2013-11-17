@@ -2,13 +2,13 @@
 <package >
   <metadata>
     <id>PocoConfig</id>
-    <version>$version$</version>
-    <title>$title$</title>
-    <authors>$author$</authors>
-    <owners>$author$</owners>
+    <version>1.1.0</version>
+    <title>AutoConfig</title>
+    <authors>HellBrick</authors>
+    <owners>HellBrick</owners>
     <projectUrl>https://github.com/HellBrick/AutoConfig/</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>$description$</description>
+    <description>A small .NET library that simplifies working with the custom configuration sections.</description>
     <releaseNotes>v1.1: .NET 4.0 support</releaseNotes>
     <copyright>Copyright 2013</copyright>
   </metadata>
